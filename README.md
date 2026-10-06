@@ -52,22 +52,6 @@ O projeto foi desenvolvido utilizando tecnologias fundamentais do desenvolviment
 
 ---
 
-## 🌎 Internacionalização
-
-O portfólio possui suporte a três idiomas:
-
-| Idioma | Código |
-|---|---|
-| 🇧🇷 Português | `pt-BR` |
-| 🇪🇸 Espanhol | `es` |
-| 🇺🇸 Inglês | `en` |
-
-A troca de idioma acontece sem recarregar a página.
-
-A preferência do usuário também é armazenada localmente através do `localStorage`.
-
----
-
 ## 🎨 Interface
 
 O design foi desenvolvido com uma identidade visual:
