@@ -228,7 +228,8 @@
 
   const cards = projects.map((p, i) => {
     const root = mk(p.url ? 'a' : 'div', 'pcard');
-    if (p.url) { root.href = p.url; root.target = '_blank'; root.rel = 'noopener noreferrer'; root.draggable = false; }
+    if (p.url) { root.href = p.url; root.target = '_blank'; root.rel = 'noopener noreferrer'; root.draggable = false;
+      root.setAttribute('aria-label', `${p.title} (abre em nova aba)`); }
     const img = mk('img', 'pcard__img');
     img.src = p.image; img.width = 2536; img.height = 1456; img.draggable = false;
     img.alt = `Prévia do projeto ${p.title}`;
@@ -238,7 +239,7 @@
     const ul = mk('ul', 'pcard__tech');
     p.technologies.forEach((t) => ul.append(mk('li', '', t)));
     info.append(ul);
-    if (p.url) info.append(mk('span', 'pcard__cta', 'View project ↗'));
+    if (p.url) info.append(mk('span', 'pcard__cta', 'Ver projeto ↗'));
     root.append(img, info);
     view.append(root);
     return { root };
@@ -356,39 +357,5 @@
       if (entries.some((en) => en.isIntersecting)) { section.classList.add('is-visible'); obs.disconnect(); }
     }, { threshold: 0.15 });
     io.observe(section);
-  }
-})();
-/* ----------------------------------------------------------
-   Contact + Footer: entrada via IntersectionObserver e Back to top
-   Mesmo padrão das outras seções: o conteúdo só é "armado"
-   (escondido) se o JS rodar e não houver redução de movimento.
-   ---------------------------------------------------------- */
-(() => {
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const reveal = (el, threshold) => {
-    if (!el) return;
-    if (reduced || !('IntersectionObserver' in window)) {
-      el.classList.add('is-visible');
-      return;
-    }
-    el.classList.add('is-armed');
-    const io = new IntersectionObserver((entries, obs) => {
-      if (entries.some((en) => en.isIntersecting)) {
-        el.classList.add('is-visible');
-        obs.disconnect(); // dispara uma única vez
-      }
-    }, { threshold });
-    io.observe(el);
-  };
-
-  reveal(document.getElementById('contato'), 0.2);
-  reveal(document.querySelector('.sfoot'), 0.2);
-
-  const toTop = document.getElementById('to-top');
-  if (toTop) {
-    toTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
-    });
   }
 })();

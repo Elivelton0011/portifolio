@@ -13,21 +13,22 @@ const projects = [
     id: "ipvi-feliz",
     title: "Igreja Presbiteriana Vila Feliz",
     description: "Portal institucional da Igreja Presbiteriana em Vila Feliz, desenvolvido com foco em experiência do usuário, responsividade, acessibilidade e uma navegação simples e intuitiva.",
-    image: "assets/ipvilafeliz.png",
+    image: "assets/ipvilafeliz.webp",
+    url: "https://www.ipvilafeliz.org/",
     technologies: ["HTML", "CSS", "JavaScript", "Git", "GitHub"]
   },
   {
     id: "cobraflow",
     title: "CobraFlow",
     description: "Sistema de automação de mensagens de cobrança desenvolvido para automatizar o envio de mensagens e reduzir tarefas manuais durante o processo de cobrança.",
-    image: "assets/cobraflow.png",
+    image: "assets/cobraflow.webp",
     technologies: ["HTML", "CSS", "JavaScript", "Python"]
   },
   {
     id: "estoque",
     title: "Sistema de Gestão de Estoque",
     description: "Sistema de gerenciamento de estoque desenvolvido para controlar produtos, quantidades, categorias e preços, permitindo realizar operações de cadastro, consulta, edição e exclusão.",
-    image: "assets/estoque.png",
+    image: "assets/estoque.webp",
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "SQL"]
   }
 ];
