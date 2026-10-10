@@ -359,3 +359,21 @@
     io.observe(section);
   }
 })();
+
+/* ----------------------------------------------------------
+   Contato: animação de entrada (mesmo padrão das outras seções)
+   ---------------------------------------------------------- */
+(() => {
+  const section = document.getElementById('contato');
+  if (!section) return;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)) {
+    section.classList.add('is-visible');
+    return;
+  }
+  section.classList.add('is-armed');
+  const io = new IntersectionObserver((entries, obs) => {
+    if (entries.some((en) => en.isIntersecting)) { section.classList.add('is-visible'); obs.disconnect(); }
+  }, { threshold: 0.15 });
+  io.observe(section);
+})();
